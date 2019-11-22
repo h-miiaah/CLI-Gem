@@ -10,10 +10,10 @@ class Bestsellers::CLI
         puts "The Bestseller Books:"
         @books = Bestsellers::Books.todays_bestsellers
         @books.each.with_index(1) do |book, index|
-            puts "#{index}. Title: #{title}"
-            puts "   Author: #{author}"
-            # puts "   Price: #{price}"
-            # puts "   URL: #{url}"
+            puts "#{index}. Title: #{book.title}"
+            puts "   Author: #{book.author}"
+            # puts "   Price: #{book.price}"
+            # puts "   URL: #{book.url}"
         end
     end
 

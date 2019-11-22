@@ -1,4 +1,4 @@
-# require 'pry'
+require 'pry'
 class Bestsellers::Books
     attr_accessor :title, :author, :price, :url
 
@@ -15,24 +15,14 @@ class Bestsellers::Books
 
     def self.scrape_books
         doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8"))
-
-        # binding.pry
-        book = self.new
-        book.title = title = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a').text
-        book.author = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[2]').text.gsub("by ","")
-        book.price = doc.search("a.current.link").first.text
-        book.url = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a/@href')
-        
-        book
-
+        bestsellers = doc.xpath('//*[@id="searchGrid"]')
+        bestsellers.map do |book|
+        binding.pry
+        new_book = self.new
+        new_book.title = title = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a').text
+        new_book.author = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[2]').text.gsub("by ","")
+        new_book.price = doc.search("a.current.link").first.text
+        new_book.url = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a/@href')
+        end
     end
 end
-
-
-        # book = self.new
-        # book.title = title = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a').text
-        # book.author = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[2]').text.gsub("by ","")
-        # book.price = doc.search("a.current.link").first.text
-        # book.url = doc.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a/@href') need to add https://www.barnesandnoble.com/ to the begining of the link
-
-        # book
