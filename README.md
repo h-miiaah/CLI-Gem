@@ -1,6 +1,6 @@
 # Bestsellers
 
-Welcome to the Bestsellers gem. This gem allows you to view the current best selling books and view thier information.
+Welcome to the Bestsellers gem. This gem allows you to view the current best selling books by Barnes & Noble and view thier information.
 
 ## Installation
 
