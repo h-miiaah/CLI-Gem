@@ -2,7 +2,7 @@ class Bestsellers::Books
     attr_accessor :title, :author, :price, :url
     @@books = []
 
-    def initialize
+    def initialize(title, author, price, url)
         @title = title
         @author = author
         @price = price
