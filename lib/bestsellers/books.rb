@@ -3,6 +3,10 @@ class Bestsellers::Books
     @@books = []
 
     def initialize
+        @title = title
+        @author = author
+        @price = price
+        @url = url
         @@books << self
     end
 

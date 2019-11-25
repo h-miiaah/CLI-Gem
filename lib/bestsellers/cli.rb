@@ -17,8 +17,8 @@ class Bestsellers::CLI
 
     # lists the title for each bestselling book. Should list 20 bestsellers.
     def list_books
-        @bestseller_books = Bestsellers::Books.all
-        @bestseller_books.each.with_index(1) do |book, index|
+        bestseller_books = Bestsellers::Books.all
+        bestseller_books.each.with_index(1) do |book, index|
             puts "#{index}. #{bestseller_books.title}"
         end
         # puts "The Bestseller Books:"
