@@ -12,6 +12,7 @@ class Bestsellers::CLI
     def welcome
         puts "* * * * * *Barnes & Nobel Bestsellers* * * * * *"
         puts "The Best Selling Books You Must Read!"
+        list_books
     end
 
     # lists the title for each bestselling book. Should list 20 bestsellers.

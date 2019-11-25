@@ -5,12 +5,16 @@ require 'open-uri'
 class Bestsellers::Scraper
 
     # set the webpage to barnes and noble bestsellers.
-    def self.webpage
+    def self.todays_bestsellers
         # doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8"))
+        self.select_bestsellers
         end
 
     # gets the section of the webpage with all the books.
     def self.select_bestsellers
+        books = []
+        books << self.create_bestsellers
+        books
         # bestseller_section = doc.css("div.resultsListContainer.topXList.favIconContainer")
         # self.webpage.css("resultsListContainer.topXList.favIconContainer").text
     end
@@ -20,12 +24,12 @@ class Bestsellers::Scraper
         doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8"))
         bestseller_section = doc.css("div.resultsListContainer.topXList.favIconContainer")
         bestseller_section.map do |bestseller_book|
-            binding.pry
-        #   book = Bestsellers::Books.new
-        #   book.title = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a').text
-        #   book.author = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[2]').text.gsub("by ","")
-        #   book.price = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[4]/table/tbody/tr/td[2]/span[1]/a').text
-        #   book.url = "https://www.barnesandnoble.com" + bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a/@href').text
+            # binding.pry
+          book = Bestsellers::Books.new
+          book.title = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a').text
+          book.author = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[2]').text.gsub("by ","")
+          book.price = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[4]/table/tbody/tr/td[2]/span[1]/a').text
+          book.url = "https://www.barnesandnoble.com" + bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a/@href').text
         end
     end
 
