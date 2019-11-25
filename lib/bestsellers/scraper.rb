@@ -6,24 +6,26 @@ class Bestsellers::Scraper
 
     # set the webpage to barnes and noble bestsellers.
     def self.webpage
-        doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8"))
-        binding.pry
-    end
+        # doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8"))
+        end
 
     # gets the section of the webpage with all the books.
     def self.select_bestsellers
+        # bestseller_section = doc.css("div.resultsListContainer.topXList.favIconContainer")
         # self.webpage.css("resultsListContainer.topXList.favIconContainer").text
     end
 
     # iterates through the bestsellers and gets the info for each bestseller book (title, author, price, url).
     def self.create_bestsellers
-        self.select_bestsellers.each do |bestseller_book|
-          book = Bestsellers::Books.new
-        #   binding.pry
+        doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8"))
+        bestseller_section = doc.css("div.resultsListContainer.topXList.favIconContainer")
+        bestseller_section.map do |bestseller_book|
+            binding.pry
+        #   book = Bestsellers::Books.new
         #   book.title = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a').text
         #   book.author = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[2]').text.gsub("by ","")
         #   book.price = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[4]/table/tbody/tr/td[2]/span[1]/a').text
-        #   book.url = bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a/@href')
+        #   book.url = "https://www.barnesandnoble.com" + bestseller_book.xpath('//*[@id="listView_"]/ol/li[1]/div/div[3]/div[1]/h3/a/@href').text
         end
     end
 
