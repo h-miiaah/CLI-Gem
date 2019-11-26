@@ -4,13 +4,24 @@ class Bestsellers::CLI
         Bestsellers::Scraper.create_bestsellers
         welcome
         list_books
+        puts " "
         menu_selection
         byebye
     end
 
     def welcome
-        puts "* * * * * *Barnes & Nobel Bestsellers* * * * * *"
-        puts "The Best Selling Books You Must Read!"
+        puts <<-GREETING
+        
+        ██████╗ ███████╗███████╗████████╗███████╗███████╗██╗     ██╗     ███████╗██████╗ ███████╗
+        ██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔════╝██║     ██║     ██╔════╝██╔══██╗██╔════╝
+        ██████╔╝█████╗  ███████╗   ██║   ███████╗█████╗  ██║     ██║     █████╗  ██████╔╝███████╗
+        ██╔══██╗██╔══╝  ╚════██║   ██║   ╚════██║██╔══╝  ██║     ██║     ██╔══╝  ██╔══██╗╚════██║
+        ██████╔╝███████╗███████║   ██║   ███████║███████╗███████╗███████╗███████╗██║  ██║███████║
+        ╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚══════╝╚══════╝╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝
+                                The Best Selling Books You Must Read!
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+        GREETING
     end
 
     def list_books
@@ -24,24 +35,29 @@ class Bestsellers::CLI
         input = ""
         while input != "exit"
             puts "Enter the number of the book you want more information on, type 'list' to view the bestsellers list, or type 'exit' to exit."
+            puts " "
             input = gets.strip.downcase
 
             if input == "list"
                 list_books
+                puts " "
                 elsif input.to_i > 20
                     puts "Please enter a valid number from the bestsellers list."
                 elsif input.to_i > 0
                     user_selection = @bestseller_books[input.to_i - 1]
+                    puts "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
                     puts "Title: #{user_selection.title}"
                     puts "Author: #{user_selection.author}"
                     puts "Price: #{user_selection.price}"
                     puts "URL: #{user_selection.url}"
+                    puts "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
             end
         end
     end
 
     def byebye
-        puts "Thank you for visiting Barnes & Noble bestsellers! Enjoy reading your new book!"
+        puts " "
+        puts "Thank you for visiting Bestsellers! Enjoy reading your new book!"
     end
     
 end
