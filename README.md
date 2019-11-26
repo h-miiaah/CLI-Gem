@@ -1,6 +1,6 @@
-# Bestsellers
+# BESTSELLERS
 
-Welcome to the Bestsellers gem. This gem allows you to view the current best selling books by Barnes & Noble and view thier information.
+Welcome to the Bestsellers gem. This gem allows you to view the current best selling books. You can also select from the best selling book list the book you are interested in to get more information about that specific book.
 
 ## Installation
 
@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once you have completed installing the gem, simply run the following code to get the gem started:
+
+$ ./bin/best-sellers
 
 ## Development
 
@@ -30,4 +32,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bestsellers.
+Bug reports and pull requests are welcome on GitHub at https://github.com/h-miiaah/bestsellers.
