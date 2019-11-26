@@ -41,7 +41,7 @@ class Bestsellers::CLI
             if input == "list"
                 list_books
                 puts " "
-                elsif input.to_i > 20
+                elsif input.to_i > 20 || input.to_i < 0
                     puts "Please enter a valid number from the bestsellers list."
                 elsif input.to_i > 0
                     user_selection = @bestseller_books[input.to_i - 1]
