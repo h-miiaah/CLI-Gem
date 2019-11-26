@@ -22,7 +22,7 @@ Or install it yourself as:
 
 Once you have completed installing the gem, simply run the following code to get the gem started:
 
-$ ./bin/best-sellers
+    $ bin/best-sellers
 
 ## Development
 
