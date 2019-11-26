@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = "bestsellers"
   spec.version       = Bestsellers::VERSION
   spec.authors       = "Haim"
-  spec.email         = "email@email.email" # this email is just to fill in the spec.email section, it is not a real eamil.
+  spec.email         = "email@email.email" # this email is just to fill in the spec.email section, it is not a real email.
 
   spec.summary       = %q{"Lists the current best selling books."}
   spec.description   = %q{"Lists the current best selling books."}
