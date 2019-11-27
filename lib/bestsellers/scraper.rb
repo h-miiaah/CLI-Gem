@@ -4,10 +4,6 @@ require 'open-uri'
 
 class Bestsellers::Scraper
 
-    def self.todays_bestsellers
-        self.select_bestsellers
-    end
-
     def self.create_bestsellers
         doc = Nokogiri::HTML(open("https://www.barnesandnoble.com/b/books/_/N-1fZ29Z8q8"))
         books = doc.css("ol.product-shelf-list.product-list-view li")
