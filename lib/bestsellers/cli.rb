@@ -1,9 +1,11 @@
+require 'pry'
 class Bestsellers::CLI
     
     def call
         Bestsellers::Scraper.create_bestsellers
         welcome
         list_books
+        binding.pry
         puts " "
         menu_selection
         byebye
@@ -58,6 +60,18 @@ class Bestsellers::CLI
     def byebye
         puts " "
         puts "Thank you for visiting Bestsellers! Enjoy reading your new book!"
+    end
+
+
+    def self.book_search(string)
+        @bestselling_books = Bestsellers::Books.all
+        @matching_books = []
+         @bestselling_books.select do |book|
+             if book.title.downcase.include?(string.downcase)
+                @matching_books << book
+             end
+         end
+         @matching_books
     end
     
 end
