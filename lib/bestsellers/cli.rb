@@ -1,11 +1,9 @@
-require 'pry'
 class Bestsellers::CLI
     
     def call
         Bestsellers::Scraper.create_bestsellers
         welcome
         list_books
-        binding.pry
         puts " "
         menu_selection
         byebye
